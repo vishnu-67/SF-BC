@@ -1,0 +1,49 @@
+name: "safewaterdev"
+x-type: "hlfv1"
+description: "Safe Water Dev Network"
+version: "1.0"
+
+channels:
+  mychannel:
+    orderers:
+      - orderer.com
+    peers:
+      peer1:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+
+organizations:
+  Org1:
+    mspid: %MEMBERID%
+    peers:
+      - peer1
+    certificateAuthorities:
+      - ca-org1
+
+orderers:
+  orderer.com:
+    url: grpcs://%ORDERINGSERVICEENDPOINT%
+    grpcOptions:
+      ssl-target-name-override: %ORDERINGSERVICEENDPOINTNOPORT%
+    tlsCACerts:
+      path: %CAFILE%
+
+peers:
+  peer1:
+    url: grpcs://%PEERSERVICEENDPOINT%
+    eventUrl: grpcs://%PEEREVENTENDPOINT%
+    grpcOptions:
+      ssl-target-name-override: %PEERSERVICEENDPOINTNOPORT%
+    tlsCACerts:
+      path: %CAFILE%
+
+certificateAuthorities:
+  ca-org1:
+    url: https://%CASERVICEENDPOINT%
+    httpOptions:
+      verify: false
+    tlsCACerts:
+      path: %CAFILE%
+    caName: %MEMBERID%

@@ -1,0 +1,20 @@
+{
+    "name": "safe-water-lambda",
+    "version": "1.0.0",
+    "description": "A Lambda function to execute transactions against Amazon Managed Blockchain",
+    "main": "index.js",
+    "engines": {
+        "node": ">=14.0.0 <15.0",
+        "npm": ">=6.14.0 <7.0"
+    },
+    "license": "Apache-2.0",
+    "dependencies": {
+        "aws-sdk": "^2.494.0",
+        "fabric-client": "~1.4.0",
+        "log4js": "^6.1.2"
+    },
+    "author": "Emile Baizel",
+    "scripts": {
+        "install": "find ./node_modules/* -mtime +10950 -exec touch {} \\;"
+    }
+}
