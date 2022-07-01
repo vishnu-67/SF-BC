@@ -179,7 +179,7 @@ let Chaincode = class {
      * @param {*} stub 
      * @param {*} args - JSON as follows:
      * {
-     *   "selfProfileId": "568c28qff4zidty100",
+     *   "profileId": "568c28qff4zidty100",
      *   "name": "Thiru",
      *   "email": "Thiru@dartexon.com",
      *   "country": "USA",
@@ -197,13 +197,13 @@ let Chaincode = class {
 
         // args is passed as a JSON string
         let json = JSON.parse(args);
-        let key = 'SW' + json['selfProfileId'];
-        if (json['selfProfileId'] != null && json['selfProfileId'] != undefined) {
+        let key = 'SW' + json['profileId'];
+        if (json['profileId'] != null && json['profileId'] != undefined) {
             console.log('##### createSWIdentity payload: ' + JSON.stringify(json));
             await stub.putState(key, Buffer.from(JSON.stringify(json)));
             console.log('============= END : createSWIdentit ===========');
         } else {
-            throw new Error('##### createSWIdentity - selfProfileId must be need create identity ');
+            throw new Error('##### createSWIdentity - profileId must be need create identity ');
         }
     }
 
@@ -220,7 +220,7 @@ let Chaincode = class {
 
         // args is passed as a JSON string
         let json = JSON.parse(args);
-        let key = 'SW' + json['selfProfileId'];
+        let key = 'SW' + json['profileId'];
         console.log('##### querySWIdentity key: ' + key);
 
         return queryByKey(stub, key);
@@ -237,7 +237,7 @@ let Chaincode = class {
         console.log('##### queryAllSWIdentity arguments: ' + JSON.stringify(args));
 
         let json = JSON.parse(args);
-        let key = 'SW' + json['selfProfileId'];
+        let key = 'SW' + json['profileId'];
         let queryString = '{"selector": {"docType":"' + key + '" }}';
         return queryByStringSWIdentity(stub, queryString);
     }

@@ -81,6 +81,7 @@ export MSP_PATH=/opt/home/admin-msp
 export MSP=$MEMBERID
 export ORDERER=$ORDERINGSERVICEENDPOINT
 export PEER=$PEERSERVICEENDPOINT
+export PEER2=$PEERSERVICEENDPOINT2
 export CHANNEL=mychannel
 export CAFILE=/opt/home/managedblockchain-tls-chain.pem
 export CHAINCODENAME=mycc

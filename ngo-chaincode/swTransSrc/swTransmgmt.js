@@ -179,7 +179,7 @@ let Chaincode = class {
      * @param {*} stub 
      * @param {*} args - JSON as follows:
      * {
-     *   "selfProfileId":"568c28rffc4zbmet100",
+     *   "profileId":"568c28rffc4zbmet100",
      *   "assetType":"Health",
      *   "assetSubType":"PhysicalHealth",
      *   "eventType":"Daily_Check",
@@ -194,13 +194,13 @@ let Chaincode = class {
 
         // args is passed as a JSON string
         let json = JSON.parse(args);
-        let key = 'SW' + json['selfProfileId'];
-        if (json['selfProfileId'] != null && json['selfProfileId'] != undefined) {
+        let key = 'SW' + json['profileId'];
+        if (json['profileId'] != null && json['profileId'] != undefined) {
             console.log('#####  createSWTransmgmt payload: ' + JSON.stringify(json));
             await stub.putState(key, Buffer.from(JSON.stringify(json)));
             console.log('============= END :  createSWTransmgmt ===========');
         } else {
-            throw new Error('##### createSWTransmgmt - selfProfileId must be need create Transcation ');
+            throw new Error('##### createSWTransmgmt - profileId must be need create Transcation ');
         }
     }
 
@@ -216,7 +216,7 @@ let Chaincode = class {
 
         // args is passed as a JSON string
         let json = JSON.parse(args);
-        let key = 'SW' + json['selfProfileId'];
+        let key = 'SW' + json['profileId'];
         console.log('##### querySWTransaction key: ' + key);
 
         return queryByKey(stub, key);
@@ -226,7 +226,7 @@ let Chaincode = class {
         console.log('##### queryAllSWTransmgmt arguments: ' + JSON.stringify(args));
 
         let json = JSON.parse(args);
-        let key = 'SW' + json['selfProfileId'];
+        let key = 'SW' + json['profileId'];
         let queryString = '{"selector": {"docType":"' + key + '" }}';
         return queryByStringSWTransmgmt(stub, queryString);
     }
