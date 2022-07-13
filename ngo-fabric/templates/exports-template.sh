@@ -88,7 +88,13 @@ export CHAINCODENAME=mycc
 export CHAINCODEVERSION=v0
 export CHAINCODEDIR=github.com/chaincode_example02/go
 export CHANNELIDEN=swidentitychn
-export CHANNELTRANS=swtranschn
 export IDENCHAINCODENAME=swidentity
+export CHANNELTRANS=swtranschn
 export TRANSCHAINCODENAME=swtransmgmt
+export INCIDENTCHANNEL=swincidentchn
+export INCIDENTCHAINCODENAME=swincident
+export WORKlOGCHANNEL=swworklogchn
+export WORKLOGCHAINCODENAME=swworklog
+export INCIDENTSHARECHANNEL=swincidentsharechn
+export INCIDENTSHARECHAINCODENAME=swincidentshare
 EOF
