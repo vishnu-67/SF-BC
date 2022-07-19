@@ -95,6 +95,6 @@ export INCIDENTCHANNEL=swincidentchn
 export INCIDENTCHAINCODENAME=swincident
 export WORKlOGCHANNEL=swworklogchn
 export WORKLOGCHAINCODENAME=swworklog
-export INCIDENTSHARECHANNEL=swincidentsharechn
-export INCIDENTSHARECHAINCODENAME=swincidentshare
+export INCIDENTSHARECHANNEL=swincsharechn
+export INCIDENTSHARECHAINCODENAME=swincshare
 EOF
